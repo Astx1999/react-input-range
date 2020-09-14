@@ -239,31 +239,34 @@ export default class Slider extends React.Component {
     const style = this.getStyle();
 
     return (
-      <span
-        className={this.props.classNames.sliderContainer}
-        ref={(node) => { this.node = node; }}
-        style={style}>
+      <>
+        <span
+          className={this.props.classNames.sliderContainer}
+          ref={(node) => { this.node = node; }}
+          style={style}>
+
+
+          <div
+            aria-labelledby={this.props.ariaLabelledby}
+            aria-controls={this.props.ariaControls}
+            aria-valuemax={this.props.maxValue}
+            aria-valuemin={this.props.minValue}
+            aria-valuenow={this.props.value}
+            className={this.props.classNames.slider}
+            draggable="false"
+            onKeyDown={this.handleKeyDown}
+            onMouseDown={this.handleMouseDown}
+            onTouchStart={this.handleTouchStart}
+            role="slider"
+            tabIndex="0" />
+        </span>
         <Label
           classNames={this.props.classNames}
           formatLabel={this.props.formatLabel}
           type="value">
           {this.props.value}
         </Label>
-
-        <div
-          aria-labelledby={this.props.ariaLabelledby}
-          aria-controls={this.props.ariaControls}
-          aria-valuemax={this.props.maxValue}
-          aria-valuemin={this.props.minValue}
-          aria-valuenow={this.props.value}
-          className={this.props.classNames.slider}
-          draggable="false"
-          onKeyDown={this.handleKeyDown}
-          onMouseDown={this.handleMouseDown}
-          onTouchStart={this.handleTouchStart}
-          role="slider"
-          tabIndex="0" />
-      </span>
+      </>
     );
   }
 }
