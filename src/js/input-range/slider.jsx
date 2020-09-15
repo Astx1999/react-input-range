@@ -239,7 +239,7 @@ export default class Slider extends React.Component {
     const style = this.getStyle();
 
     return (
-      <>
+      <React.Fragment>
         <span
           className={this.props.classNames.sliderContainer}
           ref={(node) => { this.node = node; }}
@@ -266,7 +266,7 @@ export default class Slider extends React.Component {
           type="value">
           {this.props.value}
         </Label>
-      </>
+      </React.Fragment>
     );
   }
 }
